@@ -29,7 +29,7 @@ public class GuiApp1 {
         new GuiApp1();
     }
 
-public GuiApp1()
+public GuiApp1() throws HeadlessException
     {
         JFrame guiFrame = new JFrame();
         
@@ -43,8 +43,11 @@ public GuiApp1()
         
         //Options for the JComboBox 
         String[] fruitOptions = {"Apple", "Apricot",};
+        
+        final JPanel picPanel = new JPanel();
         Icon icon = new ImageIcon("Horizontal.png");
-        JLabel label = new JLabel("Full Name :", icon, JLabel.LEFT);
+        JLabel label = new JLabel("Horizontal", icon, JLabel.RIGHT);
+        picPanel.add(label, BorderLayout.WEST);
 
         //The first JPanel contains a JLabel and JCombobox
         final JPanel comboPanel = new JPanel();
@@ -67,8 +70,8 @@ public GuiApp1()
         });
         
         guiFrame.add(comboPanel, BorderLayout.NORTH);
+        guiFrame.add(picPanel, BorderLayout.WEST);
         guiFrame.add(vegFruitBut,BorderLayout.SOUTH);
-        getContentPane().add(label, BorderLayout.CENTER);
                 
         //make sure the JFrame is visible
         guiFrame.setVisible(true);
